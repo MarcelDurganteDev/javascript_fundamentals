@@ -11,8 +11,8 @@ The value null is written with a literal: null. null is not an identifier for a 
 
 /* ----  OBS: str.match(/[aeiou]/gi)
 
-It's regular expression. "[aeiou]" tells the replace function to look for any of these characters and "gi" are flags that 
-tells the function to look for match over the entire string (will otherwise break at the first match), this is the "g" flag. 
+It's regular expression. "[aeiou]" tells the replace function to look for any of these characters and "gi" are flags. 
+the "g" flag tells the function to look for match over the entire string (will otherwise break at the first match). 
 And the "i" flag tells it to match case insensitively. So, it would also match, A , E and so on. */
 
 

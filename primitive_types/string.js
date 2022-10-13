@@ -1,4 +1,4 @@
-// Making Strings
+/* // Making Strings
 let color = "purple";
 
 // Single quotes work too:
@@ -14,12 +14,12 @@ city[3]; //'y'
 // String methods:
 'hello'.toUpperCase(); // "HELLO";
 'LOL'.toLowerCase(); // "lol"
-'    omg  '.trim(); // "omg"
+'    omg  '.trim(); // "omg" */
 
 // String methods with arguments:
 // ==============================
 
-//indexOf returns the index where the character is found (or -1 if not found)
+/* //indexOf returns the index where the character is found (or -1 if not found)
 'spider'.indexOf('i'); //2
 'vesuvius'.indexOf('u'); //3 - only returns FIRST matching index
 'cactus'.indexOf('z'); //-1 not found
@@ -29,33 +29,33 @@ city[3]; //'y'
 "pancake".slice(0, 3); //"pan" - slice from index 0 up to index 3
 
 // replace - returns a new string, with the FIRST match replaced
-"pump".replace("p", "b"); //"bump" - only replaces first "p"
+"pump".replace("p", "b"); //"bump" - only replaces first "p" */
 
 // combine methods to delete extra spaces before and after the initial word, capitalize the letter 'r', change letter 'u' per letter 'l', 
-let initialWord = "   marceu       ";
+/* let initialWord = "   marceu       ";
 let trimmedWord = initialWord.trim();
 let capitalLetter = trimmedWord.charAt(2).toUpperCase()
 let newWord = trimmedWord.slice(0,2) + capitalLetter + trimmedWord.slice(3)
 let finalWord = newWord.replace('u', 'l')
 
-console.log('finalWord: ', finalWord); // finalWord: maRcel
+console.log('finalWord: ', finalWord); // finalWord: maRcel */
 
 // str.repeat()
-let str2 = 'lol,';
+/* let str2 = 'lol,';
 
-console.log(str2.repeat(3));  // lol,lol,lol
+console.log(str2.repeat(3));  // lol,lol,lol */
 
 // Provided a word variable, set to "skateboard" use string methods on word, so that you end up with the string "beard". Save the result in a variable called facialHair
-const word = "skateboard"; 
+/* const word = "skateboard"; 
 const facialHair = word.slice(-5).replace('o', 'e') 
 console.log(facialHair); // beard
-
+ */
 // String Template Literals
 // Use backtick characters, NOT SINGLE QUOTES!
 // ========================
-const colors = "olive green and blue";
+/* const colors = "olive green and blue";
 const msg = `My favorite colors are: ${colors}` //"My favorite colors are: olive green an blue"
-const str = `There are ${60 * 60 * 24} seconds in a day`//"There are 86400 seconds in a day"
+const str = `There are ${60 * 60 * 24} seconds in a day`//"There are 86400 seconds in a day" */
 
 /* 
 String Template Literal Exercise ( also repeatead in objects/math/math.js)
@@ -73,6 +73,16 @@ roll: You rolled a 6 and a 4. They sum to 10"
 const die1 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
 const die2 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
 
+const die1One = Math.floor(Math.random() +1) *6; //random number from 1-6
+const die2Two = Math.floor(Math.random() +1) *6; //random number from 1-6
+
+console.log(die1);
+console.log(die1One);
+console.log(die2);
+console.log(die2Two);
+
+
+
 // YOUR CODE BELOW THIS LINE:
 
-let roll = `You rolled a ${die1} and a ${die2}. They sum to ${die1 + die2}`
+/* let roll = `You rolled a ${die1} and a ${die2}. They sum to ${die1 + die2}` */

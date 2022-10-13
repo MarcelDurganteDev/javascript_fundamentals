@@ -9,7 +9,7 @@ const person = {
   [NAME]: "Marcel1",
   [SURNAME]: "Durgante1",
   NAME: "Marcel2",
-  age: 35
+  // age: 35,
 };
 
 /* console.log(person);
@@ -25,12 +25,15 @@ person[GREET] = function () {
 };
 /* console.log('after greet', person);
  */
-person[GREET]();
+// person[GREET]();
 
 for (let property in person) {
-  console.log(property);
-console.log(person[property]);
+  // console.log(property);
+  //console.log(person[property]);
 }
 
+// console.log(person);
 
-console.log(Object.getOwnPropertySymbols('getOwnProp', person)); 
+console.log(Object.getOwnPropertySymbols(person));
+
+// good resource:  https://www.youtube.com/watch?v=XVBkTsj99so&t=1284s

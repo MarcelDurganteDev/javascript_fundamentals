@@ -35,7 +35,7 @@ for (i; i < myNum; i++) {
 console.log(Boolean(10 > 9)); // true
 
 let x = 0;
-console.log(Boolean(x));
+console.log(Boolean(x));  // false
 
 /*  ===================  Booleans can also be defined as objects with the keyword new:  =========================
 xxxxxxxxxxxxxxxxxxxx  Do not create Boolean objects.  xxxxxxxxxxxxxxxxxxxxxxxxx

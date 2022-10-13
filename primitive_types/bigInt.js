@@ -47,3 +47,31 @@ mixed.sort((a, b) => a - b)
 // sort with an appropriate numeric comparator
 mixed.sort((a, b) => (a < b) ? -1 : ((a > b) ? 1 : 0))
 // ↪  [ -12n, 0, 0n, 4n, 4, 6, 10 ]
+
+/* ============== BigInt type  ===============
+
+The BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary precision. With BigInts, you can safely store and operate on large integers even beyond the safe integer limit for Numbers.
+
+A BigInt is created by appending n to the end of an integer or by calling the constructor.
+
+You can obtain the largest safe value that can be incremented with Numbers by using the constant Number.MAX_SAFE_INTEGER. With the introduction of BigInts, you can operate with numbers beyond the Number.MAX_SAFE_INTEGER.
+
+This example demonstrates, where incrementing the Number.MAX_SAFE_INTEGER returns the expected result: */
+
+// BigInt
+const x = BigInt(Number.MAX_SAFE_INTEGER); // 9007199254740991n
+x + 1n === x + 2n; // false because 9007199254740992n and 9007199254740993n are unequal
+
+// Number
+console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2); // true because both are 9007199254740992
+
+/* You can use the operators +, *, -, **, and % with BigInts—just like with Numbers. A BigInt is not strictly equal to a Number, but it is loosely so.
+
+A BigInt behaves like a Number in cases where it is converted to boolean: if, ||, &&, Boolean, !.
+
+BigInts cannot be operated on interchangeably with Numbers. Instead a TypeError will be thrown. */
+
+//  ===========  NaN   ====================
+
+/* NaN ("Not a Number") is typically encountered when the result of an arithmetic operation cannot be expressed as a number. 
+It is also the only value in JavaScript that is not equal to itself. */

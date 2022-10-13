@@ -1,0 +1,30 @@
+PRIMITIVE TYPES: 
+
+They do not have properties and methods
+
+They can’t store additional data.
+
+For 'numbers', 'strings, 'boolean', 'symbol' and 'bigint there are "Object Wrappers" called 'Numbers', 'Strings', 'Boollean', 'Symbol' and 'BigInt'
+
+These Wrappers provides accessing to methods and properties and than the wrappers is distroyed.
+
+The exemple below clearly shows that primitives are not objects.
+
+
+| let str = "Hello";
+| str.test = 5; // (*)
+| alert(str.test);
+
+Depending on whether you have use strict or not, the result may be:
+
+1. undefined (no strict mode)
+2. An error (strict mode).
+
+Why? Let’s replay what’s happening at line (*):
+
+When a property of str is accessed, a “wrapper object” is created.
+In strict mode, writing into it is an error.
+Otherwise, the operation with the property is carried on, the object gets the test property, but after that the “wrapper object” disappears, so in the last line str has no trace of the property.
+This example clearly shows that primitives are not objects.
+
+They can’t store additional data.
