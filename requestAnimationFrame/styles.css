@@ -1,0 +1,43 @@
+.body {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.square-box-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(140, 140, 224);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 220px;
+    column-gap: 20px;
+}
+
+.btn-stop {
+    top: 220px;
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    border: none;
+    background-color: red;
+}
+
+.btn-start {
+    top: 220px;
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    border: none;
+    background-color: green;
+}
