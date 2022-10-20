@@ -100,7 +100,7 @@ const foo3 = function doFoo3 (n) {
   return n//explicit return for readability
 }
 
-const assignedVariable3 = foo(14)
+const assignedVariable3 = foo3(14)
 
 console.log(assignedVariable3); //  14
 
@@ -155,5 +155,5 @@ if (/* expression slot */) { }
 // Statement 4:
 /* expression slot */
 
-
+// source: https://www.youtube.com/watch?v=B8g1Wc5M8BY
 
