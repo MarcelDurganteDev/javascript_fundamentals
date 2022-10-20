@@ -119,9 +119,10 @@ Fifth call	      76	             19	          4	         95
 
 // The value returned by reduce() in this case would be 95.
 
-// ===========  Sum of values in an object array
+// ===========  Sum of values in an object array  =======================
 
 // To sum up the values contained in an array of objects, you must supply an initialValue, so that each item passes through your function.
+// NOTE THE 'currentValue.x' GETTING THE VALUE OF PROPERTY X
 
 const objects = [{ x: 1 }, { x: 2 }, { x: 3 }];
 const sum = objects.reduce(
@@ -131,7 +132,26 @@ const sum = objects.reduce(
 
 console.log(sum); // logs 6
 
-//  ==============  Flatten an array of arrays
+console.log(objects[0].x); // logs 1
+console.log(objects[1].x); // logs 2
+console.log(objects[2].x); // logs 3
+
+// Example 2
+
+// Create array of numbers:
+const numbers2 = [1, 3, 5, 7, 9, 11];
+
+// Sum the numbers array:
+const sum2 = numbers2.reduce((accumulator, currentValue, index) => accumulator + currentValue, 0)
+// For each iteration, add the "currentValue"
+// to the value of the "accumulator".
+
+// Log the result:
+console.log(sum2)
+// 36
+
+
+//  ==============  Flatten an array of arrays  =================
 
 const flattened = [
   [0, 1],
@@ -143,7 +163,22 @@ const flattened = [
 );
 // flattened is [0, 1, 2, 3, 4, 5]
 
-// =============== Counting instances of values in an object
+//  Example 2
+
+// Create array of numbers:
+const numbers5 = [1, [3, 5], [7, 9, 11], [13, 15, 17]];
+
+// Flatten an array:
+const numbersFlattened = numbers5.reduce((accumulator, currentValue) => {
+  // Concatenate the accumulator with the currentValue:
+  return accumulator.concat(currentValue);
+}, [])
+
+// Log the result:
+console.log(numbersFlattened)
+// [1,  3,  5,  7, 9, 11, 13, 15, 17]
+
+// =============== Counting instances of values ( counting number of occurences ) in an object  ======================
 
 const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
 
@@ -154,10 +189,44 @@ const countedNames = names.reduce((allNames, name) => {
     [name]: currCount + 1,
   };
 }, {});
+
+console.log( countedNames);
+
 // countedNames is:
 // { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }
 
-//  =============  Grouping objects by a property
+// Example 2:
+
+// Create array of numbers:
+const fruit = ['apple', 'pear', 'lemon', 'avocado', 'apple', 'banana', 'pear', 'apple', 'pineapple'];
+
+// Count the number of occurrences:
+const occurrences = fruit.reduce((accumulator, currentItem) => {
+  // Check if item exists in accumulator object:
+  if (currentItem in accumulator) {
+    // If so, increase the number of occurrences by 1:
+    accumulator[currentItem] = accumulator[currentItem] + 1
+  } else {
+    // Else register new occurrence:
+    accumulator[currentItem] = 1
+  }
+
+  // Return the accumulator object:
+  return accumulator
+}, {})
+
+// Log the result:
+console.log(occurrences)
+// {
+//   apple: 3,
+//   pear: 2,
+//   lemon: 1,
+//   avocado: 1,
+//   banana: 1,
+//   pineapple: 1
+// }
+
+//  =============  Grouping objects by a property ( Changing shape of objects inside arrays ) ========================
 
 const people = [
   { name: "Alice", age: 21 },
@@ -185,7 +254,41 @@ const groupedPeople = groupBy(people, "age");
 //   21: [{ name: 'Alice', age: 21 }]
 // }
 
-// =================  Concatenating arrays contained in an array of objects using the spread syntax and initialValue
+// Example 2:
+
+// Create array of numbers:
+const records = [
+  { name: 'Joe', grade: 'A' },
+  { name: 'Tom', grade: 'B' },
+  { name: 'Sandra', grade: 'B' },
+  { name: 'Joel', grade: 'C' },
+  { name: 'Victoria', grade: 'A' }
+]
+
+// Change the structure of objects in "records" array:
+const updatedRecords = records.reduce((accumulator, currentItem) => {
+  // During each iteration, transform currently processed object
+  // into this shape:
+  accumulator[currentItem.name] = {
+    grade: currentItem.grade,
+    passed: ['A', 'B'].includes(currentItem.grade)
+  }
+
+  // Return the modified object:
+  return accumulator
+}, {})
+
+// Log the result:
+console.log(updatedRecords)
+// {
+//   Joe: { grade: 'A', passed: true },
+//   Tom: { grade: 'B', passed: true },
+//   Sandra: { grade: 'B', passed: true },
+//   Joel: { grade: 'C', passed: false },
+//   Victoria: { grade: 'A', passed: true }
+// }
+
+// =================  Concatenating arrays contained in an array of objects using the spread syntax and initialValue  ===============
 
 // friends - an array of objects
 // where object field "books" is a list of favorite books
@@ -238,11 +341,11 @@ const myArrayWithNoDuplicates = myArray.reduce(
 
 console.log(myArrayWithNoDuplicates);
 
-// ============  Replace .filter().map() with .reduce()
+// ============  Replace .filter().map() with .reduce()  ======================
 
 // Using filter() then map() traverses the array twice, but you can achieve the same effect while traversing only once with reduce(), thereby being more efficient. (If you like for loops, you can filter and map while traversing once with forEach().)
 
-const numbers = [-5, 6, 2, 0];
+/* const numbers = [-5, 6, 2, 0];
 
 const doubledPositiveNumbers = numbers.reduce((previousValue, currentValue) => {
   if (currentValue > 0) {
@@ -252,9 +355,9 @@ const doubledPositiveNumbers = numbers.reduce((previousValue, currentValue) => {
   return previousValue;
 }, []);
 
-console.log(doubledPositiveNumbers); // [12, 4]
+console.log(doubledPositiveNumbers); // [12, 4] */
 
-// ========= Running Promises in Sequence
+// ========= Running Promises in Sequence  =======================   ?????????????????????????
 
 /**
  * Chain a series of promise handlers.
@@ -301,7 +404,7 @@ function p4(a) {
 const promiseArr = [p1, p2, f3, p4];
 runPromiseInSequence(promiseArr, 10).then(console.log); // 1200
 
-// ================= Function composition enabling piping
+// ================= Function composition enabling piping  ==================
 
 // Building-blocks to use for composition
 const double = (x) => 2 * x;
@@ -344,3 +447,63 @@ const arrayLike = {
 };
 
 console.log(Array.prototype.reduce.call(arrayLike, (x, y) => x + y)); // 9
+
+// ====================  Finding averages  =============================
+
+// Create array of numbers:
+const numbers = [1, 3, 5, 7, 9, 11];
+
+// Find the average:
+const average = array.reduce((accumulator, currentValue, index, array) => {
+  // For each iteration, add the "currentValue"
+  // to the value of the "accumulator".
+  accumulator += currentValue
+
+  // Check if currentItem is the last item in the array:
+  if (index === array.length - 1) {
+    // If it is, divide the accumulated value
+    // by the length of the array and return the result:
+    return accumulator / array.length
+  } else {
+    // Otherwise, return the accumulated value:
+    return accumulator
+  }
+})
+
+// Log the result:
+console.log(average)
+// 6
+
+// ================  Finding minimum and maximum values  ==========================
+
+// Create array of numbers:
+const numbers3 = [1, 3, 5, 7, 9, 11];
+
+// Find minimum value:
+const min = numbers3.reduce((accumulator, currentValue) => {
+  // If the value of "accumulator" is less than "currentValue"
+  // return the "accumulator", else return the "currentValue":
+  return accumulator < currentValue ? accumulator : currentValue;
+})
+
+// Log the result:
+console.log(min)
+// 6
+
+//  We can easily find the maximum value by switching the condition inside the callback function.
+
+// Create array of numbers:
+const numbers4 = [1, 3, 5, 7, 9, 11];
+
+// Find maximum value:
+const max = numbers4.reduce((accumulator, currentValue) => {
+  // If the value of "accumulator" is greater than "currentValue"
+  // return the "accumulator", else return the "currentValue":
+  return accumulator > currentValue ? accumulator : currentValue;
+})
+
+// Log the result:
+console.log(max)
+// 11
+
+// source:  https://blog.alexdevero.com/javascript-reduce-method/
