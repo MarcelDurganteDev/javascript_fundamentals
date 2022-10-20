@@ -19,24 +19,28 @@ console.log(sumWithInitial);
 // ===========  Syntax
 
 // Arrow function
-reduce((previousValue, currentValue) => {
-  /* … */
+
+/* reduce((previousValue, currentValue) => { ...
 });
+
 reduce((previousValue, currentValue, currentIndex) => {
-  /* … */
+  ...
 });
+
 reduce((previousValue, currentValue, currentIndex, array) => {
-  /* … */
+  ...
 });
 
 reduce((previousValue, currentValue) => {
-  /* … */
+  ...
 }, initialValue);
+
 reduce((previousValue, currentValue, currentIndex) => {
-  /* … */
+  ...
 }, initialValue);
+
 reduce((previousValue, currentValue, currentIndex, array) => {
-  /* … */
+  ...
 }, initialValue);
 
 // Callback function
@@ -45,24 +49,28 @@ reduce(callbackFn, initialValue);
 
 // Inline callback function
 reduce(function (previousValue, currentValue) {
-  /* … */
+  ...
 });
+
 reduce(function (previousValue, currentValue, currentIndex) {
-  /* … */
+  ...
 });
+
 reduce(function (previousValue, currentValue, currentIndex, array) {
-  /* … */
+  ...
 });
 
 reduce(function (previousValue, currentValue) {
-  /* … */
+  ...
 }, initialValue);
+
 reduce(function (previousValue, currentValue, currentIndex) {
-  /* … */
+  ...
 }, initialValue);
+
 reduce(function (previousValue, currentValue, currentIndex, array) {
-  /* … */
-}, initialValue);
+  ...
+}, initialValue); */
 
 // Examples
 
@@ -83,10 +91,16 @@ function reducer(previousValue, currentValue, index) {
 
 array.reduce(reducer);
 
-// =============== How reduce() works with an initial value
+// output
+
+// previousValue: 15, currentValue: 16, index: 1, returns: 31
+// previousValue: 31, currentValue: 17, index: 2, returns: 48
+// previousValue: 48, currentValue: 18, index: 3, returns: 66
+// previousValue: 66, currentValue: 19, index: 4, returns: 85
+
+// =============== How reduce() works with an initial value  -> THE INITIAL VALUE IS ADDED TO THE FINAL RESULT (see above final is 85 but bellow as it starts with 10 final is 95)
 
 // Here we reduce the same array using the same algorithm, but with an initialValue of 10 passed the second argument to reduce()
-
 // The callback would be invoked five times, with the arguments and return values in each call being as follows:
 
 [15, 16, 17, 18, 19].reduce(
@@ -95,7 +109,7 @@ array.reduce(reducer);
 );
 
 /*
-              previousValue 	currentValue	index	Return value
+              previousValue 	currentValue	  index	  Return value
 First call	      10	             15	          0	         25
 Second call	      25	             16	          1	         41
 Third call	      41         	     17	          2          58
