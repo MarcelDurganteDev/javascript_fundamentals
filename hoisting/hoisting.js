@@ -15,3 +15,5 @@ a = "Cran"; // Initialize a
 b = "berry"; // Initialize b
 
 console.log(`${a}${b}`); // 'Cranberry'
+
+// resource: https://www.youtube.com/watch?v=EvfRXyKa_GI
