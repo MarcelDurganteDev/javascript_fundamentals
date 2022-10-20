@@ -110,3 +110,14 @@ The first thing that gets pushed is main() (or global()), the main thread of exe
 When a function ends executing it gets popped from the Call Stack.
 
 */
+
+//TODO:
+//Is important to remark, setTimeout changes the callStackFlow
+console.log("test1")
+setTimeout(()=> console.log("test2"))
+console.log("test3");
+
+//expected result
+// test1
+// test3
+// test2
