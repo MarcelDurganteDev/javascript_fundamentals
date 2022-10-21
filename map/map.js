@@ -11,11 +11,11 @@ console.log(map1);
 
 // Mapping an array of numbers to an array of square roots
 
-const numbers = [1, 4, 9];
-const roots = numbers.map((num) => Math.sqrt(num));
+const numbers2 = [1, 4, 9];
+const roots = numbers2.map((num) => Math.sqrt(num));
 
 // roots is now     [1, 2, 3]
-// numbers is still [1, 4, 9]
+// numbers2 is still [1, 4, 9]
 
 // Using map to reformat objects in an array
 
@@ -36,11 +36,11 @@ const reformattedArray = kvArray.map(({ key, value }) => ({ [key]: value }));
 
 // Mapping an array of numbers using a function containing an argument
 
-const numbers = [1, 4, 9];
-const doubles = numbers.map((num) => num * 2);
+const numbers3 = [1, 4, 9];
+const doubles = numbers3.map((num) => num * 2);
 
 // doubles is now   [2, 8, 18]
-// numbers is still [1, 4, 9]
+// numbers3 is still [1, 4, 9]
 
 // Calling map() on non-array objects
 
@@ -54,8 +54,8 @@ console.log(Array.prototype.map.call(arrayLike, (x) => x ** 2)); // [ 4, 9, 16 ]
 
 // Using map() generically on a NodeList
 
-const elems = document.querySelectorAll("select option:checked");
-const values = Array.prototype.map.call(elems, ({ value }) => value);
+/* const elems = document.querySelectorAll("select option:checked");
+const values = Array.prototype.map.call(elems, ({ value }) => value); */
 
 // Using map() on sparse arrays
 
@@ -102,15 +102,15 @@ const returnInt = (element) => parseInt(element, 10);
 // One alternative output of the map method being called with parseInt as a parameter runs as follows:
 
 const strings = ['10', '10', '10'];
-const numbers = strings.map(parseInt);
+const numbers4 = strings.map(parseInt);
 
-console.log(numbers);
+console.log(numbers4);
 // Actual result of [10, NaN, 2] may be unexpected based on the above description.
 
 // Mapped array contains undefined
 
-const numbers = [1, 2, 3, 4];
-const filteredNumbers = numbers.map((num, index) => {
+const numbers5 = [1, 2, 3, 4];
+const filteredNumbers = numbers5.map((num, index) => {
   if (index < 3) {
     return num;
   }
@@ -118,4 +118,23 @@ const filteredNumbers = numbers.map((num, index) => {
 
 // index goes from 0, so the filterNumbers are 1,2,3 and undefined.
 // filteredNumbers is [1, 2, 3, undefined]
-// numbers is still [1, 2, 3, 4]
+// numbers5 is still [1, 2, 3, 4]
+
+// =========== Transforming Array of Objects into Array of Strings  ===============
+
+const songs = [
+  {id: 1 , name: 'Oblivion', artist: 'Marcel'},
+  {id: 2 , name: 'Temptation', artist: 'Marilene'},
+  {id: 3 , name: 'Ilusion', artist: 'Mikaela'},
+  {id: 4 , name: 'Happy', artist: 'Lola'}
+]
+
+// ES6
+const mySongFunc = song => song.name.toLowerCase();
+
+// const lowerCaseSongs = songs.map(mySongFunc);
+// or 
+const lowerCaseSongs = songs.map(song => song.name.toLowerCase())
+
+console.log(lowerCaseSongs); // [ 'oblivion', 'temptation', 'ilusion', 'happy' ]
+console.log(songs);
