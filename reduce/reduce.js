@@ -507,3 +507,18 @@ console.log(max)
 // 11
 
 // source:  https://blog.alexdevero.com/javascript-reduce-method/
+
+// Interesting usage of reduce()
+
+/* let itemIDs = [1, 2, 3, 4, 5]; 
+itemIDs.reduce((promise, itemID) => {
+  return promise.then(_ => api.deleteItem(itemID));
+}, Promise.resolve()); */
+
+// output:
+// Promise.resolve()
+// .then(_ => api.deleteItem(1))
+// .then(_ => api.deleteItem(2))
+// .then(_ => api.deleteItem(3))
+// .then(_ => api.deleteItem(4))
+// .then(_ => api.deleteItem(5));
