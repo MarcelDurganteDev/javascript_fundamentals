@@ -52,12 +52,12 @@ const arrayLike = {
 };
 console.log(Array.prototype.map.call(arrayLike, (x) => x ** 2)); // [ 4, 9, 16 ]
 
-// Using map() generically on a NodeList
+// ============= Using map() generically on a NodeList  =================
 
 /* const elems = document.querySelectorAll("select option:checked");
 const values = Array.prototype.map.call(elems, ({ value }) => value); */
 
-// Using map() on sparse arrays
+// ===============  Using map() on sparse arrays  ==================
 
 console.log(
   [1, , 3].map((x, index) => {
@@ -69,7 +69,7 @@ console.log(
 // Visit 2
 // [2, empty, 6]
 
-// Using parseInt() with map()
+// =================  Using parseInt() with map() ================
 
 ["1", "2", "3"].map(parseInt);
 
@@ -80,7 +80,7 @@ console.log(
 /* second iteration (index is 1): */ parseInt("2", 1); // NaN
 /* third iteration  (index is 2): */ parseInt("3", 2); // NaN
 
-// Then let's talk about solutions.
+// -------------- Then let's talk about solutions.
 
 const returnInt = (element) => parseInt(element, 10);
 
@@ -107,7 +107,7 @@ const numbers4 = strings.map(parseInt);
 console.log(numbers4);
 // Actual result of [10, NaN, 2] may be unexpected based on the above description.
 
-// Mapped array contains undefined
+// =================  Mapped array contains undefined  =======================
 
 const numbers5 = [1, 2, 3, 4];
 const filteredNumbers = numbers5.map((num, index) => {
@@ -137,4 +137,13 @@ const mySongFunc = song => song.name.toLowerCase();
 const lowerCaseSongs = songs.map(song => song.name.toLowerCase())
 
 console.log(lowerCaseSongs); // [ 'oblivion', 'temptation', 'ilusion', 'happy' ]
-console.log(songs);
+console.log(songs);  // output for logging songs array of objects is not changed:
+/* [
+     { id: 1, name: 'Oblivion', artist: 'Marcel' },
+     { id: 2, name: 'Temptation', artist: 'Marilene' },
+     { id: 3, name: 'Ilusion', artist: 'Mikaela' },
+     { id: 4, name: 'Happy', artist: 'Lola' }
+   ]
+*/
+
+
