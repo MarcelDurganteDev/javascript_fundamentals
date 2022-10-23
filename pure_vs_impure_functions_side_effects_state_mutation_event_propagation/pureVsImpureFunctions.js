@@ -133,3 +133,25 @@ const addToCartPure = (cart, item, quantity) => {
     items: [...cart.items, {item, quantity}]
   }
 }
+
+// -------------------------------------------------------------------------------------
+
+const fs = require("fs");
+
+// pure
+function isPetNameLong(petName) {
+  return petName.length >= 4;
+}
+// pure
+function getLongPetNames(file) {
+  const petNames = file.toString().split("\n").slice(0, file.legnth);
+  return petNames.filter(isPetNameLong);
+}
+// impure
+function main() {
+  const file = fs.readFileSync("petNames.txt");
+  const longPetNames = getLongPetNames(file);
+  console.log(longPetNames);
+}
+
+main(); //  [ 'Loladurgante', 'Bobby', 'Stacy', 'Pobby' ]
